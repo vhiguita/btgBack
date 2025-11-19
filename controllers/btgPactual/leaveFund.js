@@ -23,7 +23,7 @@ const leaveFund = async (req, res) => {
     });
 
     const numEnabledSus = enabledSus.length;
-    console.log("suscripciones activas",numEnabledSus);
+  
 
     let canceledSus = await Transaction.find({
       user: userId,
@@ -32,8 +32,6 @@ const leaveFund = async (req, res) => {
     });
 
     const numCanceledSus =  canceledSus.length;
-
-    console.log("suscripciones canceladas", numCanceledSus);
 
     // Valida que el número de suscripciones activas sean mayores al número que tiene el usuario canceladas
     if(numCanceledSus>=numEnabledSus){
